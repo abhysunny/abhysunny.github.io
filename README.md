@@ -1,2 +1,2 @@
-# abhysunny.github.io
+# Abhy Sunny
 Personal page
