@@ -1,179 +1,293 @@
-<!DOCTYPE html>
+<script type="text/javascript">
+        var gk_isXlsx = false;
+        var gk_xlsxFileLookup = {};
+        var gk_fileData = {};
+        function filledCell(cell) {
+          return cell !== '' && cell != null;
+        }
+        function loadFileData(filename) {
+        if (gk_isXlsx && gk_xlsxFileLookup[filename]) {
+            try {
+                var workbook = XLSX.read(gk_fileData[filename], { type: 'base64' });
+                var firstSheetName = workbook.SheetNames[0];
+                var worksheet = workbook.Sheets[firstSheetName];
+
+                // Convert sheet to JSON to filter blank rows
+                var jsonData = XLSX.utils.sheet_to_json(worksheet, { header: 1, blankrows: false, defval: '' });
+                // Filter out blank rows (rows where all cells are empty, null, or undefined)
+                var filteredData = jsonData.filter(row => row.some(filledCell));
+
+                // Heuristic to find the header row by ignoring rows with fewer filled cells than the next row
+                var headerRowIndex = filteredData.findIndex((row, index) =>
+                  row.filter(filledCell).length >= filteredData[index + 1]?.filter(filledCell).length
+                );
+                // Fallback
+                if (headerRowIndex === -1 || headerRowIndex > 25) {
+                  headerRowIndex = 0;
+                }
+
+                // Convert filtered JSON back to CSV
+                var csv = XLSX.utils.aoa_to_sheet(filteredData.slice(headerRowIndex)); // Create a new sheet from filtered array of arrays
+                csv = XLSX.utils.sheet_to_csv(csv, { header: 1 });
+                return csv;
+            } catch (e) {
+                console.error(e);
+                return "";
+            }
+        }
+        return gk_fileData[filename] || "";
+        }
+        </script><!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <title>Abhy Sunny Resume</title>
   <style>
     body {
-      font-family: Arial, sans-serif;
-      line-height: 1.6;
-      margin: 40px;
+      font-family: 'Segoe UI', Arial, sans-serif;
+      line-height: 1.5;
+      margin: 0;
+      padding: 0;
+      background-color: #f4f4f9;
+      color: #333;
     }
-    h1, h2 {
-      color: #2c3e50;
+    .container {
+      max-width: 800px;
+      margin: 20px auto;
+      background: #fff;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    }
+    h1 {
+      color: #6b4e9e; /* Purple */
+      font-size: 1.8em;
+      margin: 0 0 5px;
+      border-bottom: 2px solid #f7c948; /* Yellow */
+      padding-bottom: 5px;
+    }
+    h2 {
+      color: #6b4e9e; /* Purple */
+      font-size: 1.3em;
+      margin: 15px 0 5px;
+      border-left: 3px solid #f7c948; /* Yellow */
+      padding-left: 10px;
+    }
+    a {
+      color: #6b4e9e; /* Purple */
+      text-decoration: none;
+    }
+    a:hover {
+      color: #f7c948; /* Yellow */
     }
     .section {
-      margin-top: 30px;
+      margin-bottom: 10px;
     }
     .contact, .skills, .certs, .awards, .experience, .education, .declaration {
-      margin-bottom: 20px;
+      background: #e8e8ef; /* Light grey-purple */
+      padding: 10px;
+      border-radius: 5px;
+      margin-bottom: 10px;
     }
     ul {
-      margin: 0;
       padding-left: 20px;
+      margin: 0;
+      list-style-type: none;
+    }
+    ul li {
+      position: relative;
+      padding-left: 15px;
+      margin-bottom: 5px;
+      font-size: 0.9em;
+    }
+    ul li:before {
+      content: '•';
+      position: absolute;
+      left: 0;
+      color: #f7c948; /* Yellow */
+      font-size: 1em;
     }
     .project {
-      margin-bottom: 15px;
+      margin-bottom: 10px;
+      padding: 8px;
+      border-left: 2px solid #6b4e9e; /* Purple */
+      background: #f9f9fc;
+      border-radius: 5px;
+    }
+    .project strong {
+      color: #6b4e9e; /* Purple */
+      font-size: 1em;
+    }
+    .project em {
+      font-size: 0.85em;
+      color: #555;
     }
     .address {
       white-space: pre-line;
+      font-size: 0.9em;
+      color: #555;
+    }
+    .role-summary p {
+      font-style: italic;
+      color: #555;
+      background: #f7c94833; /* Light yellow */
+      padding: 8px;
+      border-radius: 5px;
+      font-size: 0.9em;
+    }
+    .declaration p {
+      font-style: italic;
+      color: #555;
+      font-size: 0.85em;
+    }
+    .contact p, .education li, .certs li, .awards li {
+      font-size: 0.9em;
+    }
+    @media print {
+      .container {
+        box-shadow: none;
+        margin: 0;
+        padding: 10px;
+      }
+      body {
+        background: #fff;
+      }
     }
   </style>
 </head>
 <body>
+  <div class="container">
+    <h1>Abhy Sunny</h1>
+    <p><a href="https://www.linkedin.com/in/abhy-sunny/">LinkedIn Profile</a></p>
 
-  <h1>Abhy Sunny</h1>
-  <p><a href="https://www.linkedin.com/in/abhy-sunny/">LinkedIn Profile</a></p>
+    <div class="contact section">
+      <h2>Contact</h2>
+      <p><strong>DOB:</strong> 21/09/1985</p>
+      <p class="address">4/151, Puthussery House<br>Puthenpally, Varappuzha<br>Ernakulam, 683517</p>
+      <p>Email: <a href="mailto:abhy.sunny@example.com">abhy.sunny@example.com</a></p>
+    </div>
 
-  <div class="contact">
-    <p><strong>Date of Birth:</strong> 21/09/1985</p>
-    <p class="address">4/151, Puthussery House<br>Puthenpally, Varappuzha<br>Ernakulam, 683517</p>
-    <p>Email: <a href="mailto:abhysunny@gmail.com">abhysunny@gmail.com</a></p>
-  </div>
+    <div class="section role-summary">
+      <h2>Summary</h2>
+      <p>18+ years in IT, specializing in Production Application Support, Maintenance, and Operations. Expert in Enterprise Content Management, Infrastructure Monitoring, and System Administration.</p>
+    </div>
 
-  <div class="section role-summary">
-    <h2>Role Summary</h2>
-    <p>18+ years of IT experience in Production Application Support, Maintenance and Operations. Expert in Enterprise Content Management domain with specialization in Infrastructure monitoring and System administration.</p>
-  </div>
-
-  <div class="section skills">
-    <h2>Skills</h2>
-    <ul>
-      <li>Alfresco, OpenText Documentum</li>
-      <li>Java, PowerShell</li>
-      <li>ITIL, Agile, CI/CD</li>
-      <li>Leadership, Technical troubleshooting</li>
-    </ul>
-  </div>
-
-  <div class="section certs">
-    <h2>Certifications</h2>
-    <ul>
-      <li>Certified Administrator – Documentum</li>
-      <li>Microsoft Certified: Azure Fundamentals</li>
-      <li>ITIL Foundation certificate in IT Service Management (AXELOS Global Best Practice)</li>
-    </ul>
-  </div>
-
-  <div class="section awards">
-    <h2>Awards</h2>
-    <ul>
-      <li>Best Project 2009 - Infosys Ltd</li>
-      <li>Spot Award April 2008 - Infosys Ltd</li>
-    </ul>
-  </div>
-
-  <div class="section experience">
-    <h2>Professional Experience</h2>
-
-    <div class="project">
-      <strong>Project 6: Nov 2024 – Present</strong>
+    <div class="section skills">
+      <h2>Skills</h2>
       <ul>
-        <li>Planned, managed, and executed large scale extraction of documents from Documentum platform to a shared drive.</li>
-        <li>Tech: DFC, DQL, MS SQL Server 2018</li>
+        <li>Alfresco, OpenText Documentum</li>
+        <li>Java, PowerShell</li>
+        <li>ITIL, Agile, CI/CD</li>
+        <li>Leadership, Technical Troubleshooting</li>
       </ul>
     </div>
 
-    <div class="project">
-      <strong>Project 5: Nov 2021 – Nov 2024</strong>
+    <div class="section experience">
+      <h2>Professional Experience</h2>
+      <div class="project">
+        <strong>Project 6: Nov 2024 – Present</strong>
+        <ul>
+          <li>Managed large-scale document extraction from Documentum to shared drive.</li>
+          <li>Tech: DFC, DQL, MS SQL Server 2018</li>
+        </ul>
+      </div>
+      <div class="project">
+        <strong>Project 5: Nov 2021 – Nov 2024</strong>
+        <ul>
+          <li>Expert in Documentum ECM; supported and maintained applications.</li>
+          <li>Tech: OpenText Documentum (20.x, 22.x), Azure IaaS, ServiceNow</li>
+        </ul>
+      </div>
+      <div class="project">
+        <strong>Project 4: Aug 2014 – Nov 2021</strong>
+        <ul>
+          <li>Handled content migration and L3 support for ECM applications.</li>
+          <li>Tech: Alfresco, Documentum 6.7, TeamCity, GitHub, ServiceNow</li>
+        </ul>
+      </div>
+      <div class="project">
+        <strong>Project 3: Aug 2011 – Jul 2014</strong>
+        <ul>
+          <li>Level 2 support for Documentum applications.</li>
+          <li>Tech: Documentum Administrator, Webtop, BMC Remedy</li>
+        </ul>
+      </div>
+      <div class="project">
+        <strong>Project 2: Aug 2009 – Jan 2011</strong>
+        <ul>
+          <li>Admin for test and SCM tools.</li>
+          <li>Tech: Quality Center, Test Director, Microsoft VSS</li>
+        </ul>
+      </div>
+      <div class="project">
+        <strong>Project 1: Oct 2006 – Aug 2009</strong>
+        <ul>
+          <li>IT Service Desk support with incident triage.</li>
+          <li>Tech: HP Service Center, HP SiteScope</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="section experience">
+      <h2>Organizational Experience</h2>
+      <div class="project">
+        <strong>Accenture – Software Development Associate Manager</strong><br>
+        <em>Nov 2024 – Present | Bengaluru, India · Hybrid</em>
+        <ul>
+          <li>Role: Software Development Associate Manager</li>
+          <li>Skills: Content Migration</li>
+        </ul>
+      </div>
+      <div class="project">
+        <strong>Wipro – Senior Software Engineer</strong><br>
+        <em>Nov 2021 – Nov 2024 | Kochi, India · Hybrid</em>
+        <ul>
+          <li>Role: Senior Software Engineer</li>
+          <li>Skills: Root Cause</li>
+        </ul>
+      </div>
+      <div class="project">
+        <strong>Infosys</strong><br>
+        <em>Jul 2006 – Nov 2021 | Bengaluru, India</em>
+        <ul>
+          <li><strong>Technology Lead</strong> (2014–2021)<br>Skills: Root Cause, Content Migration</li>
+          <li><strong>Technology Analyst</strong> (2011–2014)<br>Skills: Application Support</li>
+          <li><strong>Systems Engineer</strong> (2009–2011)<br>Skills: Software Configuration Management</li>
+          <li><strong>Junior Engineer</strong> (2006–2009)<br>Skills: Incident Management</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="section education">
+      <h2>Education</h2>
       <ul>
-        <li>Recognized as an expert in Documentum ECM applications.</li>
-        <li>Collaborated with stakeholders to support and maintain Documentum ECM applications.</li>
-        <li>Tech: OpenText Documentum (20.x, 22.x), Input Accel, D2, DQ-Man, Azure IaaS, Azure Managed Instance, MS SQL Server 2018, ServiceNow</li>
+        <li>MBA (2007–2019) – ICFAI Distance Education</li>
+        <li>BSc Electronics & Computer Maintenance (2003–2006) – Union Christian College</li>
       </ul>
     </div>
 
-    <div class="project">
-      <strong>Project 4: Aug 2014 – Nov 2021</strong>
+    <div class="section certs">
+      <h2>Certifications</h2>
       <ul>
-        <li>Worked on Content Migration and L3 Support for ECM Applications.</li>
-        <li>Managed Support Team KPIs.</li>
-        <li>Tech: Alfresco, Documentum 6.7, TeamCity, TFS, GitHub, New Relic, MS SQL Server 2018, ServiceNow, Rally</li>
+        <li>Certified Administrator – Documentum</li>
+        <li>Microsoft Certified: Azure Fundamentals</li>
+        <li>ITIL Foundation (AXELOS)</li>
       </ul>
     </div>
 
-    <div class="project">
-      <strong>Project 3: Aug 2011 – Jul 2014</strong>
+    <div class="section awards">
+      <h2>Awards</h2>
       <ul>
-        <li>Level 2 support for customized Documentum applications.</li>
-        <li>Tech: Documentum Administrator, DQ-Man, Webtop, BMC Remedy</li>
+        <li>Best Project 2009 – Infosys</li>
+        <li>Spot Award 2008 – Infosys</li>
       </ul>
     </div>
 
-    <div class="project">
-      <strong>Project 2: Aug 2009 – Jan 2011</strong>
-      <ul>
-        <li>Project/user admin for test and SCM tools.</li>
-        <li>Tech: Quality Center, Test Director, Source Forge, Microsoft VSS, Dimensions CM</li>
-      </ul>
-    </div>
-
-    <div class="project">
-      <strong>Project 1: Oct 2006 – Aug 2009</strong>
-      <ul>
-        <li>IT Service Desk support including incident triage and URL/Web service monitoring.</li>
-        <li>Tech: HP Service Center, HP SiteScope, AdventNet Applications Manager</li>
-      </ul>
+    <div class="section declaration">
+      <h2>Declaration</h2>
+      <p>I declare that the above information is true to the best of my knowledge.</p>
+      <p><strong>Abhy Sunny</strong><br>26th Jan 2025</p>
     </div>
   </div>
-
-  <div class="section education">
-    <h2>Education</h2>
-    <ul>
-      <li>Master of Business Administration (2007–2019) – ICFAI Distance Education</li>
-      <li>BSc Electronics and Computer Maintenance (2003–2006) – Union Christian College, Mahatma Gandhi University</li>
-    </ul>
-  </div>
-
-  <div class="section declaration">
-    <h2>Declaration</h2>
-    <p>I hereby declare that information given above are true to the best of my knowledge.</p>
-    <p><strong>Abhy Sunny</strong><br>Date: 26th Jan 2025</p>
-  </div>
-
-
-<div class="section experience">
-  <h2>Organizational Experience</h2>
-
-  <div class="project">
-    <strong>Accenture – Software Development Associate Manager</strong><br>
-    <em>Nov 2024 – Present · 7 months | Bengaluru, Karnataka, India · Hybrid</em>
-    <ul>
-      <li>Role: Software Development Associate Manager</li>
-      <li>Skills: Content Migration</li>
-    </ul>
-  </div>
-
-  <div class="project">
-    <strong>Wipro – Senior Software Engineer</strong><br>
-    <em>Nov 2021 – Nov 2024 · 3 yrs 1 mo | Kochi, Kerala, India · Hybrid</em>
-    <ul>
-      <li>Role: Senior Software Engineer</li>
-      <li>Skills: Root Cause</li>
-    </ul>
-  </div>
-
-  <div class="project">
-    <strong>Infosys</strong><br>
-    <em>Jul 2006 – Nov 2021 · 15 yrs 5 mos | Bengaluru, Karnataka, India</em>
-    <ul>
-      <li><strong>Technology Lead</strong> (Aug 2014 – Nov 2021 · 7 yrs 4 mos)<br>Skills: Root Cause, Content Migration</li>
-      <li><strong>Technology Analyst</strong> (Oct 2011 – Aug 2014 · 2 yrs 11 mos)<br>Skills: Application Support</li>
-      <li><strong>Systems Engineer/Senior Systems Engineer</strong> (Nov 2009 – Oct 2011 · 2 yrs)<br>Skills: Software Configuration Management</li>
-      <li><strong>Junior Engineer</strong> (Jul 2006 – Oct 2009 · 3 yrs 4 mos)<br>Skills: Incident Management</li>
-    </ul>
-  </div>
-</div>
-
 </body>
 </html>
