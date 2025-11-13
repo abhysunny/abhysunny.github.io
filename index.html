@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Abhy Sunny - Production Support & ECM Specialist</title>
+    <style>
+        :root {
+            --primary-blue: #1a4b8c;
+            --accent-red: #e63946;
+            --accent-yellow: #ffd700;
+            --text-grey: #4a4a4a;
+            --muted-grey: #757575;
+            --accent-violet: #6a4c93;
+            --bg-light: #f8f9fa;
+            --link-hover: #ff8c42;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Inter, Arial, sans-serif;
+            line-height: 1.6;
+            color: var(--text-grey);
+            background-color: var(--bg-light);
+            padding: 20px;
+        }
+
+        .container {
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            max-width: 900px;
+            width: 100%;
+            margin: 0 auto;
+            padding: 40px;
+        }
+
+        header {
+            display: flex;
+            align-items: flex-start;
+            justify-content: space-between;
+            border-bottom: 3px solid var(--primary-blue);
+            padding-bottom: 24px;
+            margin-bottom: 32px;
+            gap: 20px;
+        }
+
+        .header-info h1 {
+            margin: 0 0 8px 0;
+            color: var(--primary-blue);
+            font-size: 2.2rem;
+        }
+
+        .contact {
+            font-size: 0.95rem;
+            color: var(--muted-grey);
+        }
+
+        .contact div {
+            margin-bottom: 4px;
+        }
+
+        .header-title {
+            text-align: right;
+            color: var(--muted-grey);
+            font-size: 0.9rem;
+        }
+
+        .header-title div {
+            margin-bottom: 4px;
+        }
+
+        h2 {
+            margin: 0 0 16px 0;
+            color: var(--accent-violet);
+            font-size: 1.2rem;
+            border-left: 4px solid var(--accent-yellow);
+            padding-left: 12px;
+        }
+
+        a {
+            color: var(--primary-blue);
+            text-decoration: none;
+            border-bottom: 1px solid transparent;
+            transition: all 0.2s ease;
+        }
+
+        a:hover {
+            color: var(--link-hover);
+            border-bottom-color: var(--link-hover);
+        }
+
+        .section {
+            margin-bottom: 32px;
+            padding: 20px;
+            background: var(--bg-light);
+            border-radius: 6px;
+        }
+
+        .section p {
+            color: var(--text-grey);
+            line-height: 1.8;
+            margin-bottom: 12px;
+        }
+
+        ul {
+            margin: 0 0 0 20px;
+        }
+
+        li {
+            margin-bottom: 6px;
+            color: var(--text-grey);
+        }
+
+        .two-col {
+            display: flex;
+            gap: 24px;
+        }
+
+        .two-col .section {
+            flex: 1;
+        }
+
+        .project {
+            margin-bottom: 16px;
+            padding: 12px;
+            border-left: 2px solid var(--accent-yellow);
+            transition: border-color 0.2s ease;
+        }
+
+        .project:hover {
+            border-left-color: var(--accent-red);
+        }
+
+        .project strong {
+            color: var(--primary-blue);
+        }
+
+        .project-meta {
+            color: var(--muted-grey);
+            font-size: 0.9rem;
+            margin-top: 4px;
+        }
+
+        .skills-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin: 12px 0;
+        }
+
+        .skill-tag {
+            background: white;
+            color: var(--primary-blue);
+            padding: 8px 12px;
+            border-radius: 4px;
+            font-size: 0.9em;
+            border: 1px solid var(--accent-yellow);
+        }
+
+        .contact-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .contact-links a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            background: white;
+            color: var(--primary-blue);
+            text-decoration: none;
+            transition: all 0.3s ease;
+            border: 2px solid var(--primary-blue);
+        }
+
+        .contact-links a:hover {
+            background: var(--primary-blue);
+            color: white;
+            transform: translateY(-3px);
+        }
+
+        @media (max-width: 700px) {
+            .container {
+                padding: 20px;
+            }
+
+            header {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .header-title {
+                text-align: left;
+            }
+
+            .two-col {
+                flex-direction: column;
+            }
+
+            .header-info h1 {
+                font-size: 1.8rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="header-info">
+                <h1>Abhy Sunny</h1>
+                <div class="contact">
+                    <div><a href="https://www.linkedin.com/in/abhy-sunny/">LinkedIn: /in/abhy-sunny</a></div>
+                    <div>Email: <a href="mailto:abhysunny@gmail.com">abhysunny@gmail.com</a></div>
+                    <div>DOB: 21/09/1985</div>
+                    <div>Ernakulam, Kerala</div>
+                </div>
+            </div>
+            <div class="header-title">
+                <div><strong>Production Application Support</strong></div>
+                <div><strong>ECM Specialist</strong></div>
+                <div style="margin-top: 8px; font-size: 1rem;">18+ years experience</div>
+            </div>
+        </header>
+
+        <section class="section">
+            <h2>Summary</h2>
+            <p>Experienced IT professional with 18+ years in Production Application Support, Maintenance and Operations. Strong background in Enterprise Content Management (Documentum, Alfresco), content migration, infrastructure monitoring and system administration. Comfortable leading support teams, driving root-cause analysis and collaborating with stakeholders to deliver reliable production systems.</p>
+        </section>
+
+        <div class="two-col">
+            <section class="section">
+                <h2>Skills</h2>
+                <ul>
+                    <li>OpenText Documentum, Alfresco</li>
+                    <li>Content migration, DFC, DQL</li>
+                    <li>MS SQL Server, Azure IaaS / Managed Instance</li>
+                    <li>PowerShell, Java</li>
+                    <li>CI/CD, ITIL, Incident & Problem Management</li>
+                </ul>
+
+                <h2 style="margin-top: 24px;">Certifications</h2>
+                <ul>
+                    <li>Certified Administrator – Documentum</li>
+                    <li>Microsoft Certified: Azure Fundamentals</li>
+                    <li>ITIL Foundation</li>
+                </ul>
+            </section>
+
+            <section class="section">
+                <h2>Awards</h2>
+                <ul>
+                    <li>Best Project 2009 — Infosys Ltd</li>
+                    <li>Spot Award April 2008 — Infosys Ltd</li>
+                </ul>
+
+                <h2 style="margin-top: 24px;">Education</h2>
+                <ul>
+                    <li>MBA — ICFAI (Distance)</li>
+                    <li>BSc Electronics & Computer Maintenance — Union Christian College</li>
+                </ul>
+            </section>
+        </div>
+
+        <section class="section">
+            <h2>Professional Experience (selected)</h2>
+
+            <div class="project">
+                <strong>D2 Application Developer</strong>
+                <div class="project-meta">March 2025 – July 2025</div>
+                <ul>
+                    <li>Individual contributor for ECM team designing and developing custom Documentum D2 applications.</li>
+                </ul>
+            </div>
+
+            <div class="project">
+                <strong>Content Migration Lead</strong>
+                <div class="project-meta">Nov 2024 – Present</div>
+                <ul>
+                    <li>Planned and executed large-scale extraction of documents from Documentum to shared storage.</li>
+                    <li>Tech: DFC, DQL, MS SQL Server</li>
+                </ul>
+            </div>
+
+            <div class="project">
+                <strong>ECM Support Lead</strong>
+                <div class="project-meta">Nov 2021 – Nov 2024</div>
+                <ul>
+                    <li>Lead support and maintenance for Documentum ECM applications; stakeholder collaboration and L3 troubleshooting.</li>
+                    <li>Tech: OpenText Documentum (20.x, 22.x), Input Accel, D2, Azure IaaS, MS SQL Server, ServiceNow</li>
+                </ul>
+            </div>
+
+            <div class="project">
+                <strong>ECM Migration Specialist</strong>
+                <div class="project-meta">Aug 2014 – Nov 2021</div>
+                <ul>
+                    <li>Content migration and L3 support for ECM applications; managed support team KPIs.</li>
+                    <li>Tech: Alfresco, Documentum 6.7, TeamCity, New Relic</li>
+                </ul>
+            </div>
+
+            <div class="project">
+                <strong>Support & Configuration Specialist</strong>
+                <div class="project-meta">2006 – 2014</div>
+                <ul>
+                    <li>Level 2 support, configuration management, and service desk roles across multiple projects and tools.</li>
+                </ul>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2>Work Experience</h2>
+
+            <div class="project">
+                <strong>Accenture</strong> — Custom Software Development Associate Manager
+                <div class="project-meta">Nov 2024 – Present · Bengaluru (Hybrid)</div>
+                <ul>
+                    <li>Role: Custom Software Development Associate Manager — Content Migration focus</li>
+                </ul>
+            </div>
+
+            <div class="project">
+                <strong>Wipro</strong> — Senior Software Engineer
+                <div class="project-meta">Nov 2021 – Nov 2024 · Kochi (Hybrid)</div>
+                <ul>
+                    <li>Role: Senior Software Engineer — root-cause analysis and application support</li>
+                </ul>
+            </div>
+
+            <div class="project">
+                <strong>Infosys</strong>
+                <div class="project-meta">Jul 2006 – Nov 2021 · Bengaluru</div>
+                <ul>
+                    <li>Technology Lead (Aug 2014 – Nov 2021) — Root cause analysis, content migration</li>
+                    <li>Technology Analyst / Systems Engineer — Application support & SCM roles</li>
+                </ul>
+            </div>
+        </section>
+
+        <section class="section" style="text-align: center; border-top: 1px solid #ddd; padding-top: 24px;">
+            <div class="contact-links">
+                <a href="https://github.com" title="GitHub">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v 3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                    </svg>
+                </a>
+                <a href="https://www.linkedin.com/in/abhy-sunny/" title="LinkedIn">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.225 0z"/>
+                    </svg>
+                </a>
+                <a href="mailto:abhysunny@gmail.com" title="Email">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
+                    </svg>
+                </a>
+            </div>
+            <p style="margin-top: 24px; font-size: 0.9rem;">© 2025 Abhy Sunny. All rights reserved.</p>
+        </section>
+    </div>
+</body>
+</html>
