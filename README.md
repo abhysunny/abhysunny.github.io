@@ -52,8 +52,9 @@ I'm an experienced IT professional with **18+ years** of expertise in:
 ## 📊 Career Experience (Selected)
 
 **Recent Roles:**
+- Documentum Support (Dec 2025- till date)
 - D2 Application Developer (March 2025 – July 2025)
-- Content Migration Lead (Nov 2024 – Present)
+- Content Migration Lead (Nov 2024 – Feb 2025)
 - ECM Support Lead (Nov 2021 – Nov 2024) — Led support team and drove L3 troubleshooting
 - ECM Migration Specialist (Aug 2014 – Nov 2021) — Managed content migration projects and team KPIs
 - Support & Configuration Specialist (2006 – 2014)
