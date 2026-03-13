@@ -4,22 +4,22 @@ Welcome to my personal portfolio website. This repository contains my profession
 
 ## 📋 About Me
 
-I'm an experienced IT professional with **18+ years** of expertise in:
-- **Production Application Support** and Maintenance & Operations
+I'm an experienced IT professional with **19+ years** of expertise in:
+
 - **Enterprise Content Management (ECM)** - Documentum, Alfresco
+- **Production Application Support** and Maintenance & Operations
 - **Content Migration** and infrastructure management
 - **Team Leadership** and root-cause analysis
 - **Cloud Technologies** - Azure IaaS & Managed Instance
 
 ## 🎯 Professional Title
 
-**Production Application Support Specialist & ECM Specialist**
+**ECM Specialist**
 
 ## 💼 Current Experience
 
-**Accenture** — Custom Software Development Associate Manager (Nov 2024 – Present)
-- Focus on content migration and custom software development
-- Leading development initiatives with a focus on ECM solutions
+**OpenText** — Lead Premium Support Engineer (Nov 2025 - Present)
+- Focus on supporting Documentum applications.
 
 ## 🔧 Technical Skills
 
@@ -57,7 +57,9 @@ I'm an experienced IT professional with **18+ years** of expertise in:
 - Content Migration Lead (Nov 2024 – Feb 2025)
 - ECM Support Lead (Nov 2021 – Nov 2024) — Led support team and drove L3 troubleshooting
 - ECM Migration Specialist (Aug 2014 – Nov 2021) — Managed content migration projects and team KPIs
-- Support & Configuration Specialist (2006 – 2014)
+- ECM Support & Configuration Specialist (2011 – 2014)
+- Testing and configuration management tools administration(2009-2011)
+- Incident Management - Service Desk (2006-2009)
 
 **Organizations:**
 - Accenture (Nov 2024 – Present)
