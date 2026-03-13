@@ -80,7 +80,7 @@ Visit the live profile: [abhysunny.github.io](https://abhysunny.github.io)
 - **LinkedIn**: [linkedin.com/in/abhy-sunny](https://www.linkedin.com/in/abhy-sunny/)
 - **Email**: [abhysunny@gmail.com](mailto:abhysunny@gmail.com)
 - **Date of Birth**: 21/09/1985
-- **Location**: Ernakulam, Kerala, India
+- **Location**: Bangalore, Karnataka, India
 
 ## 📝 License
 
