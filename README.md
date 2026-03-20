@@ -1,6 +1,6 @@
 # Abhy Sunny - Professional Profile
 
-Welcome to my personal portfolio website. This repository contains my professional profile showcasing my experience, skills, and expertise in Enterprise Content Management (ECM) and Production Application Support.
+This repository contains my professional profile showcasing my experience, skills, and expertise in Enterprise Content Management (ECM) and Production Application Support.
 
 ## 📋 About Me
 
@@ -33,7 +33,7 @@ I'm an experienced IT professional with **19+ years** of expertise in:
 
 ## 🎓 Certifications
 
-- Certified Administrator – Documentum
+- Certified Business User, Business Adminstrator, Administrator – Documentum
 - Microsoft Certified: Azure Fundamentals
 - ITIL Foundation
 
@@ -44,9 +44,8 @@ I'm an experienced IT professional with **19+ years** of expertise in:
 
 ## 🏆 Professional Highlights
 
-- **18+ years** in IT and enterprise solutions
+- **19+ years** in IT and enterprise solutions
 - **Leadership experience** across top organizations (Accenture, Wipro, Infosys)
-- **Awards**: Best Project 2009 & Spot Award April 2008 (Infosys Ltd)
 - **Specialized expertise** in ECM systems, content migration, and production support
 
 ## 📊 Career Experience (Selected)
@@ -62,7 +61,8 @@ I'm an experienced IT professional with **19+ years** of expertise in:
 - Incident Management - Service Desk (2006-2009)
 
 **Organizations:**
-- Accenture (Nov 2024 – Present)
+- Opentext (Nov 2024 – till date)
+- Accenture (Nov 2024 – Oct 2025)
 - Wipro (Nov 2021 – Nov 2024) — Senior Software Engineer
 - Infosys (Jul 2006 – Nov 2021) — Technology Lead and various technical roles
 
@@ -86,6 +86,6 @@ Visit the live profile: [abhysunny.github.io](https://abhysunny.github.io)
 
 © 2025 Abhy Sunny. All rights reserved.
 
----
 
-*Last updated: November 2025*
+
+*Last updated: March 2026*
